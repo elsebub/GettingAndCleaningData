@@ -47,5 +47,9 @@ row <- 1
 
 names(cleanedData2) <- names(cleanedDataMS)
 
+activity <- read.table("./activity_labels.txt")
+activityLabel <- activity[cleanedData2$activity, 2]
+cleanedData2$activity <- activityLabel
+
 #Write out the result
 write.table(cleanedData2, "data_with_means.txt", row.name=FALSE)
